@@ -8,3 +8,9 @@
 <% if @employee.tickets.present? %>
   <p> Oldest Ticket: <%= @employee.tickets.oldest.subject %> </p>
 <% end %>
+
+<%= form_with url: "/employees/#{@employee.id}?ticket_id=#{params[:ticket_id]}", method: :get, local: true, skip_enforcing_utf8: true do |form|%>
+  <%= form.label :ticket_id, "Add Ticket" %>
+  <%= form.text_field :ticket_id %>
+  <%= form.submit "Submit", name: nil %>
+<% end %>

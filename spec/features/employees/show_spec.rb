@@ -68,7 +68,7 @@ RSpec.describe Employee do
 
     expect(page).to_not have_content("internet")
 
-    fill_in 'add', with: "#{ticket4.id}"
+    fill_in 'ticket_id', with: "#{ticket4.id}"
     click_on 'Submit'
 
     expect(current_path).to eq("/employees/#{empl1.id}")
