@@ -1,0 +1,10 @@
+<h1>Employee: <%= @employee.name %> </h1>
+<h2>Works in: <%= @employee.department.name %> </h2>
+
+<% @employee.tickets.ordered_by_age.each do |ticket| %>
+  <p> Ticket: <%= ticket.subject %> Age: <%= ticket.age %> </p>
+<% end %>
+
+<% if @employee.tickets.present? %>
+  <p> Oldest Ticket: <%= @employee.tickets.oldest.subject %> </p>
+<% end %>

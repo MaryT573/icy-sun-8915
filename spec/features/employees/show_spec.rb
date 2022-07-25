@@ -12,7 +12,7 @@ RSpec.describe Employee do
     expect(page).to have_content("finance")
   end
 
-  xit 'can display all tickets from oldest to youngest, and oldest again seperatly' do
+  it 'can display all tickets from oldest to youngest, and oldest again seperatly' do
     dept1 = Department.create(name: "finance", floor: 3)
     empl1 = dept1.employees.create(name: "George", level: 4)
     ticket1 = Ticket.create(subject: "log-in", age: 5)
@@ -24,7 +24,7 @@ RSpec.describe Employee do
 
     visit "/employees/#{empl1.id}"
     expect(current_path).to eq("/employees/#{empl1.id}")
-
+    
     expect(ticket2.subject).to appear_before(ticket1.subject)
     expect(ticket2.subject).to appear_before(ticket3.subject)
     expect(ticket3.subject).to appear_before(ticket1.subject)
